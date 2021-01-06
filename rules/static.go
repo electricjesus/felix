@@ -899,6 +899,10 @@ func (r *DefaultRuleRenderer) StaticManglePreroutingChain(ipVersion uint8) *Chai
 					RestoreMask: uint32(r.Config.WireguardMarkDoNotRouteViaWireguard + r.Config.WireguardMarkNonCaliWorkloadIface),
 				},
 			},
+			Rule{
+				Match:  Match().InInterface(r.Config.WireguardInterfaceName).ConntrackState("NEW").RPFCheckFailed(true),
+				Action: DropAction{},
+			},
 		)
 	}
 

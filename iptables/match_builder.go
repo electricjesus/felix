@@ -107,6 +107,7 @@ func (m MatchCriteria) RPFCheckPassed(acceptLocal bool) MatchCriteria {
 	if acceptLocal {
 		ret = append(ret, "--accept-local")
 	}
+
 	return ret
 }
 
@@ -115,6 +116,7 @@ func (m MatchCriteria) RPFCheckFailed(acceptLocal bool) MatchCriteria {
 	if acceptLocal {
 		ret = append(ret, "--accept-local")
 	}
+
 	return ret
 }
 
